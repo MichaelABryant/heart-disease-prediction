@@ -1,0 +1,110 @@
+ <!doctype html>
+ <html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Disease Predictor</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}?v=120">
+  <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+</head>
+
+  <body>
+
+  <!-- Container -->
+  <div class="container">
+    <a style="text-decoration:none" href="/">
+      <h1 class='heading_font'>Heart Disease Predictor</h1>
+    </a>
+  </div>
+
+  <!-- Input -->
+  <div class="ml-container">
+    <form action="{{ url_for('predict')}}" method="post">
+      <input type="text" id="ages" name="age" required="required" placeholder="Enter age">
+      <br/>
+      <select name="sex" id="male-female" required="required">
+        <option selected>Select sex</option>
+        {% for x in ['Male', 'Female'] %} 
+        <option value={{x}}>{{x}}</option>
+        {% endfor %}
+      </select>
+      <br/>
+      <select name="cp" id="chest-pain" required="required">
+        <option selected>Select chest pain type</option>
+        {% for x in ['Typical', 'Atypical', 'Non-anginal', 'Asymptomatic'] %} 
+        <option value={{x}}>{{x}}</option>
+        {% endfor %}
+      </select>
+      <br/>   
+      <input type="text" id="blood-pressure" name="trestbps" required="required" placeholder="Enter resting blood pressure (in mmHg)">
+      <br/>       
+      <input type="text" id="cholesterol" name="chol" required="required" placeholder="Enter cholesterol (in mg/dL)">   
+      <br/>             
+      <select name="fbs" id="fasting-blood-sugar" required="required">
+        <option selected>Is the fasting blood sugar greater than 120 mg/dL?</option>
+        {% for x in ['Yes', 'No'] %} 
+        <option value={{x}}>{{x}}</option>
+        {% endfor %}
+      </select>
+      <br/>                       
+      <select name="restecg" id="electrocariograph" required="required">
+        <option selected>Select ECG results</option>
+        {% for x in ['Normal', 'Abnormality', 'Hypertrophy'] %} 
+        <option value={{x}}>{{x}}</option>
+        {% endfor %}
+      </select>
+      <br/>      
+      <input type="text" id="bpm" name="thalach" required="required" placeholder="Select maximum heart rate (in bpm)">
+      <br/> 
+      <select name="exang" id="exercise-angina" required="required">
+        <option selected>Is there exercise-induced angina?</option>
+        {% for x in ['Yes', 'No'] %} 
+        <option value={{x}}>{{x}}</option>
+        {% endfor %}
+      </select>
+      <br/> 
+      <input type="text" id="st-depression" name="oldpeak" required="required" placeholder="Enter ST-depression">
+      <br/>  
+      <select name="slope" id="st-slope" required="required">
+        <option selected>Select ST segment slope characteristic</option>
+        {% for x in ['Upsloping', 'Flat', 'Downsloping'] %} 
+        <option value={{x}}>{{x}}</option>
+        {% endfor %}
+      </select> 
+      <br/>
+      <select name="ca" id="vessels" required="required">
+        <option selected>Select number of major vessels colored by flouroscopy</option>
+        {% for x in ['0', '1', '2', '3'] %} 
+        <option value={{x}}>{{x}}</option>
+        {% endfor %}
+      </select>
+      <br/>
+      <select name="thal" id="thalium" required="required">
+        <option selected>Select thalium stress test result</option>
+        {% for x in ['Normal', 'Fixed', 'Reversible'] %} 
+        <option value={{x}}>{{x}}</option>
+        {% endfor %}
+      </select>                                 
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <input type="submit" class="my-cta-button" value="Predict">
+    </form> 
+  </div>
+        
+  <!-- Footer -->
+  <div class='footer'>
+    <div class="contact">
+      <a target="_blank" href="https://github.com/michaelabryant/heart-disease-prediction"><i class="fab fa-github fa-lg contact-icon"></i></a>
+      <a target="_blank" href="https://www.linkedin.com/in/michaelabryant"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+	  <a target="_blank" href="mailto:m.alexander.bryant@gmail.com"><i class="far fa-envelope fa-lg contact-icon"></i></a>
+    </div>
+    <p class='footer-description'>2022 &copy; Michael Bryant</p></p>
+  </div>
+  
+  </body>
+  
+</html>

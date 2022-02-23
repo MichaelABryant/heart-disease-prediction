@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heart Disease Predictor</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}?v=120">
+  <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+</head>
+
+  <body>
+  
+  <!-- Container -->
+  <div class="container">
+    <a style="text-decoration:none" href="/">
+      <h1 class='heading_font'>Heart Disease Predictor</h1><br/>
+    </a>
+  </div>
+  
+  <!-- Result -->
+  <div class="results">
+    {% if prediction==1 %}
+	  <h1>Prediction: <span class='danger'>heart disease</span></h1>
+	  <br/>
+	  <br/>
+	  <img src="data:image/png;base64, {{ plot_url }}">
+	{% elif prediction==0 %}
+	  <h1>Prediction: <span class='safe'>no heart disease</span></h1>
+	  <br/>
+	  <br/>
+	  <img src="data:image/png;base64, {{ plot_url }}">
+	{% endif %}
+  </div>
+
+  <!-- Footer -->
+  <div class='footer'>
+    <div class="contact">
+      <a target="_blank" href="https://github.com/michaelabryant/heart-disease-prediction"><i class="fab fa-github fa-lg contact-icon"></i></a>
+      <a target="_blank" href="https://www.linkedin.com/in/michaelabryant"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+	  <a target="_blank" href="mailto:m.alexander.bryant@gmail.com"><i class="far fa-envelope fa-lg contact-icon"></i></a>
+    </div>
+    <p class='footer-description'>2022 &copy; Michael Bryant</p></p>
+  </div>
+  
+  </body>
+  
+</html>
