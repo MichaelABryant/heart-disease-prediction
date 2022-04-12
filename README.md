@@ -49,7 +49,7 @@ I looked at the distributions of the data and the correlations between variables
 <div align="center">
   
 <figure>
-<img src="images/thalach-age-target.jpg"><br/>
+<img src="output/eda/lmplot_age_thalach_target.jpg"><br/>
   <figcaption>Figure 2: Scatter plot with linear regression lines showing maximum heart rate decreases at a greater rate with age for those with heart disease.</figcaption>
 </figure>
 <br/><br/>
@@ -59,7 +59,7 @@ I looked at the distributions of the data and the correlations between variables
 <div align="center">
   
 <figure>
-<img src="images/oldpeak-target.jpg"><br/>
+<img src="output/eda/violinplot_target_oldpeak.jpg"><br/>
   <figcaption>Figure 3: Violin plot showing lower oldpeak values for those with heart disease.</figcaption>
 </figure>
 <br/><br/>
@@ -69,7 +69,7 @@ I looked at the distributions of the data and the correlations between variables
 <div align="center">
   
 <figure>
-<img src="images/risk-factors-target.jpg"><br/>
+<img src="output/eda/histplot_riskfactors_target.jpg"><br/>
   <figcaption>Figure 4: Bar plot showing minimal relationship between number of risk factors and heart disease.</figcaption>
 </figure>
 <br/><br/>
@@ -102,6 +102,36 @@ For this application it's important to minimize false negatives (i.e., people wh
 
 The hard voting classifier included GaussianNB, LogisticRegression, and SVC.
 
+<div align="center">
+  
+<figure>
+<img src="output/modeling/confusion_matrix_logistic_regression.jpg"><br/>
+  <figcaption>Figure 5: Confusion matrix for logistic regression model.</figcaption>
+</figure>
+<br/><br/>
+  
+</div>
+
+<div align="center">
+  
+<figure>
+<img src="output/modeling/confusion_matrix_svc.jpg"><br/>
+  <figcaption>Figure 6: Confusion matrix for SVC.</figcaption>
+</figure>
+<br/><br/>
+  
+</div>
+
+<div align="center">
+  
+<figure>
+<img src="output/modeling/ROC_logistic_regression_svc.jpg"><br/>
+  <figcaption>Figure 7: ROC for logistic regression and SVC models.</figcaption>
+</figure>
+<br/><br/>
+  
+</div>
+
 ### Feature Importance
 
 According to the permutation importance for the hard voting classifier in Figure 5, the most important features, in order, were `slope`, `thalach`, `oldpeak`, `ca`, and `cp`. `fbs` and `chol` had no impact on the model which is against conventional wisdom that diabetes and high cholesterol increase the risk for heart disease. Although, this group of people are not representative of the general population, because the common trait of these patients is that they have all experienced angina. `thalach` ranks highly in feature importance, as shown in Figure 2, there is a definite difference between the heart disease groups. Interestingly, maximum heart rate converges for the two groups, so `thalach` is probably more useful to determine heart disease in younger patients than older. `slope` is the most important feature to the hard voting classifier which is determined from the ST segment of the electrocardiogram. Looking at Figure 6, the SVC model does not prioritize this feature as much so it must be heavily weighted from either naive Bayes or logistic regression.
@@ -109,30 +139,8 @@ According to the permutation importance for the hard voting classifier in Figure
 <div align="center">
   
 <figure>
-<img src="images/perm-import-hv.JPG"><br/>
-  <figcaption>Figure 5: Permutation importance for the hard voting classifier.</figcaption>
-</figure>
-<br/><br/>
-  
-</div>
-
-<div align="center">
-  
-<figure>
-<img src="images/shap-svc.jpg"><br/>
-  <figcaption>Figure 6: SHAP summary plot of the feature importance for the SVC model.</figcaption>
-</figure>
-<br/><br/>
-  
-</div>
-
-The decision tree graphic, shown in Figure 7, is included because it is easy to derive insights from this model and it scored similarly in accuracy to the best models. `thal` appears to be one of the more important features as it also appears in the permutation importance for the hard voting classifier. Having a reversible defect, as determined by the thalium stress test, may signify heart disease whereas having normal results (i.e., the best outcome) is a good indicator that you don't have heart disease. A thalium stress test indicated a fixed defect is the most heavily weighted feature for the hard voting classifier to classify records as having no heart disease.
-
-<div align="center">
-
-<figure>
-<img src="images/dt.jpg"><br/>
-  <figcaption>Figure 7: Graphical representation of a decision tree.</figcaption>
+<img src="output/modeling/logistic_regression_coefficients.jpg"><br/>
+  <figcaption>Figure 8: Logistic regression coefficients.</figcaption>
 </figure>
 <br/><br/>
   
