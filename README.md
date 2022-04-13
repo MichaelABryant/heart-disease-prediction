@@ -155,7 +155,7 @@ According to the permutation importance for the logistic regression coefficients
 
 ## Productionization
 
-I built a [Heroku web app](https://predict-heart-diseases.herokuapp.com/) with a front end which takes patient medical information input from the user and outputs a heart disease prediction using the logistic regression model. Once the user has input their information and submitted, the model makes a prediction and outputs the probabilities of each class (i.e., heart disease and no heart disease). This was included for cases where the probabilities are close so that users do not heavily rely on the predictions and make diagnoses at their own discretion. 
+I built a [Heroku web app](https://app-heart-disease-predictor.herokuapp.com/) with a front end which takes patient medical information input from the user and outputs a heart disease prediction using the logistic regression model. Once the user has input their information and submitted, the model makes a prediction and outputs the probabilities of each class (i.e., heart disease and no heart disease). This was included for cases where the probabilities are close so that users do not heavily rely on the predictions and make diagnoses at their own discretion. 
 
 <div align="center">
   
