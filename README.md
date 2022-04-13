@@ -1,6 +1,6 @@
 # heart-disease-prediction
 
-This repository is for the analysis and modeling done with the UCI heart disease dataset. Below you will find an overview of the data, code, and results. The goal was to create an end-to-end project where I create a pipeline to perform an exploratory data analysis (EDA), feature engineer, apply machine learning algorithms to predict heart disease, and create a [deployed application with a front-end](https://predict-heart-diseases.herokuapp.com/) to productionize the best performing model. The repo with the Heroku files for the app can be found [here](https://github.com/MichaelBryantDS/heart-disease-pred-app).
+This repository is for the analysis and modeling done with the UCI heart disease dataset. Below you will find an overview of the data, code, and results. The goal was to create an end-to-end project where I create a pipeline to perform an exploratory data analysis (EDA), feature engineer, apply machine learning algorithms to predict heart disease, and create a [deployed application with a front-end](https://app-heart-disease-predictor.herokuapp.com/) to productionize the best performing model.
 
 ### Code Used 
 
@@ -18,17 +18,25 @@ The dataset was gathered from [Kaggle](https://www.kaggle.com/ronitf/heart-disea
 
 ## Files
 
-### eda-engineering.py
+### code/eda.py
 
 This file contains the EDA and feature engineering. The EDA is performed using descriptive statistics, histograms to determine distributions, and a correlation heatmap using the Pearson correlation coefficient. A feature is engineered by creating a predictor based on risk factors. Other feature engineering includes the creation of dummy variables for categorical variables with pandas get_dummies and numerical features are scaled using MinMaxScaler. The scaler is pickled after fitting for use with productionization.
 
-### modeling.py
+### code/modeling.py
 
 This file contains the modeling where I hyperparameter tune: GaussianNB, LogisticRegression, DecisionTreeClassifier, kNeighborsClassifier, RandomForestClassifier, SVC (support vector classifier), XGBClassifier, StackingClassifier, (hard) VotingClassifier, (soft) VotingClassifier, BaggingClassifier, (pasting with) BaggingClassifier, and AdaBoostClassifier. Since the computational needs are low from having 303 records with 12 features, I used 13 ML algorithms and ensemble methods. The models are hyperparameter tuned with GridSearchCV based on accuracy and the best models are judged based on accuracy, sensitivity, specificity, precision, and AUC metrics. This file also contains code to derive the feature importance from the best models using shap and eli5 package.
 
-### final-model.py
+### datasets/heart.csv
 
-This file contains the best model (hard voting classifier) and it is pickled for use with productionization.
+This file contains the heart data that was analyzed.
+
+### deployment
+
+This folder contains the pickle files for the logistic regression and SVC models, min max scaler, one hot encoder, and other files such as the HTML frontend and Flask files.
+
+### output
+
+This folder contains the jpg images generated from running the eda.py and modeling.py scripts.
 
 ## Results
 
