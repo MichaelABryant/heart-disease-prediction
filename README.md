@@ -161,7 +161,7 @@ I built a [Heroku web app](https://predict-heart-diseases.herokuapp.com/) with a
   
 <figure>
 <img src="images/heart-deployment.gif"><br/>
-  <figcaption>Figure 8: Front-end of application using the hard voting classifier model.</figcaption>
+  <figcaption>Figure 9: Front-end of application using the logistic regression model.</figcaption>
 </figure>
 <br/><br/>
   
