@@ -142,7 +142,7 @@ The hard voting classifier included GaussianNB, LogisticRegression, and SVC.
 
 ### Feature Importance
 
-According to the permutation importance for the hard voting classifier in Figure 5, the most important features, in order, were `slope`, `thalach`, `oldpeak`, `ca`, and `cp`. `fbs` and `chol` had no impact on the model which is against conventional wisdom that diabetes and high cholesterol increase the risk for heart disease. Although, this group of people are not representative of the general population, because the common trait of these patients is that they have all experienced angina. `thalach` ranks highly in feature importance, as shown in Figure 2, there is a definite difference between the heart disease groups. Interestingly, maximum heart rate converges for the two groups, so `thalach` is probably more useful to determine heart disease in younger patients than older. `slope` is the most important feature to the hard voting classifier which is determined from the ST segment of the electrocardiogram. Looking at Figure 6, the SVC model does not prioritize this feature as much so it must be heavily weighted from either naive Bayes or logistic regression.
+According to the permutation importance for the logistic regression coefficients in Figure 5, the most important features, in order, were `ca`, `cp`. `sex`, `oldpeak`, and `thal`, `fbs` and `chol` had low impact on the model which is against conventional wisdom that diabetes and high cholesterol increase the risk for heart disease. Although, this group of people are not representative of the general population, because the common trait of these patients is that they have all experienced angina. `thalach` ranks highly in feature importance, as shown in Figure 2, there is a definite difference between the heart disease groups. Interestingly, maximum heart rate converges for the two groups, so `thalach` is probably more useful to determine heart disease in younger patients than older.
 
 <div align="center">
   
@@ -156,7 +156,7 @@ According to the permutation importance for the hard voting classifier in Figure
 
 ## Productionization
 
-I built a [Heroku web app](https://predict-heart-diseases.herokuapp.com/) with a front end which takes patient medical information input from the user and outputs a heart disease prediction using the hard voting classifier model. More information on this can be found at it's [repo](https://github.com/MichaelBryantDS/heart-disease-pred-app).
+I built a [Heroku web app](https://predict-heart-diseases.herokuapp.com/) with a front end which takes patient medical information input from the user and outputs a heart disease prediction using the logistic regression model.
 
 <div align="center">
   
