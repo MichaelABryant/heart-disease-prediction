@@ -160,7 +160,7 @@ I built a [Heroku web app](https://app-heart-disease-predictor.herokuapp.com/) w
 <div align="center">
   
 <figure>
-<img src="images/heart-deployment.gif"><br/>
+<img src="gif/heart-disease-deployment-larger.gif"><br/>
   <figcaption>Figure 9: Front-end of application using the logistic regression model.</figcaption>
 </figure>
 <br/><br/>
