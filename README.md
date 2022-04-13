@@ -24,7 +24,7 @@ This file contains the EDA and feature engineering. The EDA is performed using d
 
 ### code/modeling.py
 
-This file contains the modeling where I hyperparameter tune: GaussianNB, LogisticRegression, DecisionTreeClassifier, kNeighborsClassifier, RandomForestClassifier, SVC (support vector classifier), XGBClassifier, StackingClassifier, (hard) VotingClassifier, (soft) VotingClassifier, BaggingClassifier, (pasting with) BaggingClassifier, and AdaBoostClassifier. Since the computational needs are low from having 303 records with 12 features, I used 13 ML algorithms and ensemble methods. The models are hyperparameter tuned with GridSearchCV based on accuracy and the best models are judged based on accuracy, sensitivity, specificity, precision, and AUC metrics. This file also contains code to derive the feature importance from the best models using shap and eli5 package.
+This file contains the modeling where I hyperparameter tune: GaussianNB, LogisticRegression, DecisionTreeClassifier, kNeighborsClassifier, RandomForestClassifier, SVC (support vector classifier), XGBClassifier, StackingClassifier, and VotingClassifier. Since the computational needs are low from having 303 records with 12 features, I used nine ML algorithms and ensemble methods. The models are hyperparameter tuned with GridSearchCV based on accuracy and the best models are judged primarily on sensitivity/recall, but other metrics such as accuracy, specificity, precision, and AUC metrics were also considered.
 
 ### datasets/heart.csv
 
@@ -93,22 +93,21 @@ I feature engineered using the dataset for future modeling. I made the following
 
 First, I split the data into train and tests sets with a test set size of 25%.
 
-I then hyperparameter tuned 13 different models with five-fold cross-validation and evaluated them using accuracy.
+I then hyperparameter tuned nine different models with five-fold cross-validation and evaluated them primarily based on sensitivity/recall.
 
-The models I used were GaussianNB, LogisticRegression, DecisionTreeClassifier, kNeighborsClassifier, RandomForestClassifier, SVC (support vector classifier), XGBClassifier, StackingClassifier, (hard) VotingClassifier, (soft) VotingClassifier, BaggingClassifier, (pasting with) BaggingClassifier, and AdaBoostClassifier.
+The models I used were GaussianNB, LogisticRegression, DecisionTreeClassifier, kNeighborsClassifier, RandomForestClassifier, SVC (support vector classifier), XGBClassifier, StackingClassifier, and VotingClassifier.
 
 ### Model Performance
 
-For this application it's important to minimize false negatives (i.e., people who have heart disease but were predicted not to). I looked at accuracy, precision, specificity, sensitivity, AUC, and MCC to choose the best model. For these reasons, the best model was:
+For this application it's important to minimize false negatives (i.e., people who have heart disease but were predicted not to). For this reason, the most important metric was sensitivity/recall, but I also used accuracy, precision, specificity, AUC, and MCC to choose the best model. For these reasons, the best model was:
 <br/><br/>
-**Hard VotingClassifier**
+**LogisticRegression**
+* Sensitivity/Recall: 0.8717
 * Accuracy: 0.8553
-* Sensitivity: 0.8717
 * Specificity: 0.8367
 * Precision: 0.8571
-* MCC: 0.7084
 
-The hard voting classifier included GaussianNB, LogisticRegression, and SVC.
+The SVC also scored well in sensitivity/recall, but since logistic regression has easier interpretability I decided to use it.
 
 <div align="center">
   
