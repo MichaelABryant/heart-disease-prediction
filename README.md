@@ -7,8 +7,6 @@ Diagnosing heart attacks (i.e., angina caused by heart disease) has a misdiagnos
 
 For this project, I created a pipeline to perform an exploratory data analysis (EDA), feature engineered, applied machine learning algorithms, and created a [deployed application with a front-end](https://app-heart-disease-predictor.herokuapp.com/) to productionize the best performing model for doctors to use with diagnosing heart attack patients.
 
- Due to other factors (such as accuracy and model interpretability)
-
 ### Code Used 
 
 **Python Version:** 3.7.10 <br />
