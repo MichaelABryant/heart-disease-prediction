@@ -109,7 +109,7 @@ For this application it's important to minimize false negatives (i.e., people wh
 * Accuracy: 0.88
 * AUC (ROC): 0.94
 
-The SVC model scored better in sensitivity/recall (with a score of 0.93), but had a lower accuracy (with a score of 0.82). Since logistic regression has higher interpretability I decided to use it.
+The SVC model scored better in sensitivity/recall (with a score of 0.93), but had a lower accuracy (with a score of 0.82). I decided to use logistic regression since it has easier interpretability and higher accuracy.
 
 <div align="center">
   
