@@ -1,4 +1,4 @@
-# heart-disease-prediction
+# Predicting Heart Disease in Patients with Angina
 
 This repository is for the analysis and modeling done with the UCI heart disease dataset. Below you will find an overview of the data, code, and results. The goal was to create an end-to-end project where I create a pipeline to perform an exploratory data analysis (EDA), feature engineer, apply machine learning algorithms to predict heart disease, and create a [deployed application with a front-end](https://app-heart-disease-predictor.herokuapp.com/) to productionize the best performing model.
 
