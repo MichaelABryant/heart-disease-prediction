@@ -3,7 +3,7 @@
 This repository is for the analysis and modeling done with the UCI heart disease dataset. Below you will find an overview of the data, code, and results.
 
 ### Project Outcome
-Diagnosing heart attacks (i.e., angina caused by heart disease) has a misdiagnosis rate of 33%. This translates to a recall score of 66% which I considered the baseline for a successful model. The test set recall score for my best performing models were 93% and 90%. Therefore, the project was a sucess.
+Diagnosing heart attacks (i.e., angina caused by heart disease) has a [misdiagnosis rate of 33%](https://www.bhf.org.uk/informationsupport/heart-matters-magazine/news/behind-the-headlines/misdiagnosis#:~:text=Both%20result%20in%20serious%20damage,misdiagnosis%20when%20compared%20with%20men). This translates to a recall score of 66% which I considered the baseline for a successful model. The test set recall score for my best performing models were 93% and 90%. Therefore, the project was a sucess.
 
 For this project, I created a pipeline to perform an exploratory data analysis (EDA), feature engineered, applied machine learning algorithms, and created a [deployed application with a front-end](https://app-heart-disease-predictor.herokuapp.com/) to productionize the best performing model for doctors to use with diagnosing heart attack patients.
 
