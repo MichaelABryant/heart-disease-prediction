@@ -93,21 +93,20 @@ I feature engineered using the dataset for future modeling. I made the following
 
 First, I split the data into train and tests sets with a test set size of 25%.
 
-I then hyperparameter tuned nine different models with five-fold cross-validation and evaluated them primarily based on sensitivity/recall.
+I then hyperparameter tuned nine different models with ten-fold cross-validation and evaluated them primarily based on sensitivity/recall.
 
 The models I used were GaussianNB, LogisticRegression, DecisionTreeClassifier, kNeighborsClassifier, RandomForestClassifier, SVC (support vector classifier), XGBClassifier, StackingClassifier, and VotingClassifier.
 
 ### Model Performance
 
-For this application it's important to minimize false negatives (i.e., people who have heart disease but were predicted not to). For this reason, the most important metric was sensitivity/recall, but I also used accuracy, precision, specificity, AUC, and MCC to choose the best model. For these reasons, the best model was:
+For this application it's important to minimize false negatives (i.e., people who have heart disease but were predicted not to). For this reason, the most important metric was sensitivity/recall, but I also took accuracy and AUC (ROC) into consideration to choose the best model. For these reasons, the best model was:
 <br/><br/>
 **LogisticRegression**
-* Sensitivity/Recall: 0.8717
-* Accuracy: 0.8553
-* Specificity: 0.8367
-* Precision: 0.8571
+* Sensitivity/Recall: 0.90
+* Accuracy: 0.88
+* AUC (ROC): 0.94
 
-The SVC also scored well in sensitivity/recall, but since logistic regression has easier interpretability I decided to use it.
+The SVC model scored better in sensitivity/recall (with a score of 0.93), but had a lower accuracy (with a score of 0.82). Since logistic regression has higher interpretability I decided to use it.
 
 <div align="center">
   
