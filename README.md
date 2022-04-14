@@ -89,8 +89,7 @@ I looked at the distributions of the data and the correlations between variables
 
 ### Feature Engineering
 
-I feature engineered using the dataset for future modeling. I made the following changes:
-* Created dummy variables for `sex`,`cp`, `fbs`, `restecg`, `exang`, `slope`, `ca`, `thal`
+I feature engineered using the dataset for modeling. I created dummy variables for `sex`,`cp`, `fbs`, `restecg`, `exang`, `slope`, `ca`, `thal`.
 
 ### Model Building
 
