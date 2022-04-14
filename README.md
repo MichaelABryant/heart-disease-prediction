@@ -10,7 +10,7 @@ This repository is for the analysis and modeling done with the UCI heart disease
 
 ## Heart Disease Dataset
 
-The dataset was gathered from [Kaggle](https://www.kaggle.com/ronitf/heart-disease-uci). The dataset contains 14 variables and 303 patient records.
+The dataset was gathered from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/heart+disease). The dataset contains 14 variables and 303 patient records.
 
 ### Variables
 
@@ -168,7 +168,7 @@ I built a [Heroku web app](https://app-heart-disease-predictor.herokuapp.com/) w
 
 ## Resources
 
-1. [Kaggle: Heart Disease UCI](https://www.kaggle.com/ronitf/heart-disease-uci)
+1. [UCI Machine Learning Repository (dataset)](https://archive.ics.uci.edu/ml/datasets/heart+disease)
 2. [Kaggle: Ken Jee - Titanic Project Example](https://www.kaggle.com/kenjee/titanic-project-example)
 3. [Machine Learning Mastery: Stacking Ensemble Machine Learning with Python](https://machinelearningmastery.com/stacking-ensemble-machine-learning-with-python/)
 4. [Machine Learning Mastery: How to Report Classifier Performance with Confidence Intervals](https://machinelearningmastery.com/report-classifier-performance-confidence-intervals/)
