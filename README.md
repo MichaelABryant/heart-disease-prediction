@@ -61,7 +61,7 @@ This file contains the heart data that was analyzed.
 
 ### deployment
 
-This folder contains the pickle files for the LogisticRegression and SVC models, MinMaxScaler, OneHotEncoder, and other files such as the HTML frontend and Flask files.
+This folder contains the pickle files for the LogisticRegression, MinMaxScaler, OneHotEncoder, and other files such as the HTML frontend and Flask files.
 
 ### output
 
@@ -153,7 +153,7 @@ I also took a look at the AUC (of the ROC shown below in Figure 6) which is an i
   
 <figure>
 <img src="output/modeling/ROC_logisticregression.jpg"><br/>
-  <figcaption>Figure 6: ROC for logistic regression and SVC models.</figcaption>
+  <figcaption>Figure 6: ROC for LogisticRegression.</figcaption>
 </figure>
 <br/><br/>
   
