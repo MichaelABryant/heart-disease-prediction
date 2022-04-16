@@ -133,7 +133,9 @@ For this application it's important to minimize false negatives (i.e., people wh
 * Recall/Sensitivity: 0.90
 * Accuracy: 0.88
 
-The SVC model scored better in recall (with a score of 0.93), but had a lower accuracy (with a score of 0.82) which is below the doctor diagnosis threshold. These LogisticRegression scores are with the default probability threshold of 0.5. If higher recall is desired (at the expense of accuracy) then the threshold could be changed. Since these scores are within the goal thresholds, I did not change the default 0.5 probability threshold for the model. The test set confusion matricies for LogisticRegression and SVC models are displayed below in Figures 5 and 6.
+The SVC model scored better in recall (with a score of 0.93), but had a lower accuracy (with a score of 0.82) which is below the doctor diagnosis threshold. All other models had lower accuracies and lower recalls than LogisticRegression. DecisionTreeClassifier, RandomForestClassifier, StackingClassifier, and VotingClassifier were all within the doctor diagnosis threshold, but along with having higher scores LogisticRegression is easiest to interpret, so I chose LogisticRegression.
+
+The LogisticRegression scores are with the default probability threshold of 0.5. If higher recall is desired (at the expense of accuracy) then the threshold could be changed. Since these scores are within the goal thresholds, I did not change the default 0.5 probability threshold for the model. The test set confusion matrix for LogisticRegression is displayed below in Figures 5.
 
 <div align="center">
   
@@ -145,23 +147,13 @@ The SVC model scored better in recall (with a score of 0.93), but had a lower ac
   
 </div>
 
-<div align="center">
-  
-<figure>
-<img src="output/modeling/confusion_matrix_svc.jpg"><br/>
-  <figcaption>Figure 6: Confusion matrix for SVC.</figcaption>
-</figure>
-<br/><br/>
-  
-</div>
-
-I also took a look at the AUC (of the ROC shown below in Figure 7) which is an important metric for when true negatives and true positives have equal importance. Its also important to see how the model behaves at various probability thresholds for making classifications and for comparing multiple models. The LogisticRegression and SVC models both performed the same, regarding AUC, with excellent scores of 0.94 (out of 1.00). Neither is definitively better than the other since the curves intersect, so it depends on the sensitivity/specificity trade-off for the situation.
+I also took a look at the AUC (of the ROC shown below in Figure 6) which is an important metric for when true negatives and true positives have equal importance. Its also important to see how the model behaves at various probability thresholds for making classifications (as mentioned above). The LogisticRegression scored an excellent 0.94 AUC (out of 1.00).
 
 <div align="center">
   
 <figure>
 <img src="output/modeling/ROC_logistic_regression_svc.jpg"><br/>
-  <figcaption>Figure 7: ROC for logistic regression and SVC models.</figcaption>
+  <figcaption>Figure 6: ROC for logistic regression and SVC models.</figcaption>
 </figure>
 <br/><br/>
   
@@ -169,13 +161,13 @@ I also took a look at the AUC (of the ROC shown below in Figure 7) which is an i
 
 ### Feature Importance
 
-According to the logistic regression coefficients in Figure 8, the most important features, in order, were `ca`, `cp`. `sex`, `oldpeak`, and `thal`, `fbs` and `chol` had low impact on the model which is against conventional wisdom that diabetes and high cholesterol increase the risk for heart disease. Although, this group of people are not representative of the general population, because the common trait of these patients is that they have all experienced angina. `thalach` ranks highly in feature importance, as shown in Figure 2, there is a definite difference between the heart disease groups. Interestingly, maximum heart rate converges for the two groups, so `thalach` is probably more useful to determine heart disease in younger patients than older.
+According to the logistic regression coefficients in Figure 7, the most important features, in order, were `ca`, `cp`. `sex`, `oldpeak`, and `thal`, `fbs` and `chol` had low impact on the model which is against conventional wisdom that diabetes and high cholesterol increase the risk for heart disease. Although, this group of people are not representative of the general population, because the common trait of these patients is that they have all experienced angina. `thalach` ranks highly in feature importance, as shown in Figure 2, there is a definite difference between the heart disease groups. Interestingly, maximum heart rate converges for the two groups, so `thalach` is probably more useful to determine heart disease in younger patients than older.
 
 <div align="center">
   
 <figure>
 <img src="output/modeling/logistic_regression_coefficients.jpg"><br/>
-  <figcaption>Figure 8: Logistic regression coefficients.</figcaption>
+  <figcaption>Figure 7: Logistic regression coefficients.</figcaption>
 </figure>
 <br/><br/>
   
