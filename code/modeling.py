@@ -40,9 +40,8 @@ def main():
         1. Preprocesses UCI heart disease dataset,
         2. Calculates and prints model baselines and cross-validation scores,
         3. Calculates and prints test set accuracies and recall, and
-        4. Calculates and prints confusion matricies, classification reports,
-            ROC, and ROC AUCs for the best classifiers (LogisticRegression and
-            SVC).
+        4. Calculates and prints confusion matrix, classification report,
+            ROC, and ROC AUCs for the best classifier (LogisticRegression).
     Only executes when __name__ == "__main__"."""
     
     # Preprocess data.
@@ -171,7 +170,7 @@ def get_preprocessed_data(drop_first=False):
     if drop_first == False:
         return X_train, X_test, y_train, y_test
     
-    # When the preprocess function is used for logistic regression inference,
+    # When the preprocess function is used for LogisticRegression inference,
     # drop_first is set to True.
     else:
         return X_train, y_train, column_names
@@ -337,8 +336,8 @@ def get_cv_scores(classifier_instances, X_train, y_train, classifier_names,
 
 def get_model_evaluations(estimators, X_train, y_train, X_test, y_test):
     """Calculate and display test set accuracy and recall for all classifiers.
-    Calculate and display confusion matricies, classification report, ROC, and
-    ROC AUC for best models (LogisticRegression and SVC)."""
+    Calculate and display confusion matrix, classification report, ROC, and
+    ROC AUC for best model (LogisticRegression)."""
     
     # Unpack estimators list.
     estimators, estimator_names = estimators[0], estimators[1]
@@ -355,33 +354,24 @@ def get_model_evaluations(estimators, X_train, y_train, X_test, y_test):
             estimator_names[idx],round(accuracy_score(y_test, y_pred),2),
             round(recall_score(y_test, y_pred),2)))
         
-    # Unpack best classifiers (LogisticRegression and SVC).
-    lr_clf, svc_clf = estimators[1], estimators[5]
+    # Unpack best classifier (LogisticRegression).
+    lr_clf= estimators[1]
     
     # LogisticRegression final fit and prediction.
     lr_clf.fit(X_train,y_train)
     y_pred_lr = lr_clf.predict(X_test)
     
-    # SVC final fit and prediction.
-    svc_clf.fit(X_train,y_train)
-    y_pred_svc = svc_clf.predict(X_test)
-    
-    # Pickle logistic regression model.
+    # Pickle LogisticRegression model.
     outfile = open('../deployment/logisticregression.pkl', 'wb')
     pickle.dump(lr_clf,outfile)
     outfile.close()
     
-    # Pickle support vector classifier.
-    outfile = open('../deployment/svc.pkl', 'wb')
-    pickle.dump(svc_clf,outfile)
-    outfile.close()
-    
-    # Get dummy variables, but drop first and fit logistic regression
+    # Get dummy variables, but drop first and fit LogisticRegression
     X_train, y_train, column_names = get_preprocessed_data(drop_first=True)
     lr_clf_drop_first = LogisticRegression(C=0.5)
     lr_clf_drop_first.fit(X_train, y_train)    
     
-    # Plot a logistic regression confusion matrix.
+    # Plot a LogisticRegression confusion matrix.
     matrix_lr = confusion_matrix(y_test, y_pred_lr)
     plt.figure(figsize=(16,7))
     sns.set(font_scale=1.4)
@@ -390,70 +380,46 @@ def get_model_evaluations(estimators, X_train, y_train, X_test, y_test):
     plt.yticks()
     plt.xlabel('Predicted label')
     plt.ylabel('True label')
-    plt.title('Confusion matrix for logistic regression')
+    plt.title('Confusion matrix for LogisticRegression')
     plt.savefig('../output/modeling/confusion_matrix_logistic_regression.jpg',
                 bbox_inches='tight')
     plt.show()
 
-    print('\nLogistic Regression Metrics\n')
+    print('\nLogisticRegression Metrics\n')
 
-    # Display the logistic regression classification report.
+    # Display the LogisticRegression classification report.
     print(classification_report(y_test, y_pred_lr))
     
-    # Plot a support vector classifier confusion matrix.
-    matrix_svc = confusion_matrix(y_test, y_pred_svc)
-    plt.figure(figsize=(16,7))
-    sns.set(font_scale=1.4)
-    sns.heatmap(matrix_svc, annot=True, annot_kws={'size':10}, linewidths=0.2)
-    plt.xticks()
-    plt.yticks()
-    plt.xlabel('Predicted label')
-    plt.ylabel('True label')
-    plt.title('Confusion matrix for support vector classifier')
-    plt.savefig('../output/modeling/confusion_matrix_svc.jpg',
-                bbox_inches='tight')
-    plt.show()
-
-    print('\nSupport Vector Classifier Metrics\n')
-
-    #view the soft voting classification report
-    print(classification_report(y_test, y_pred_svc))
     
-    # Plot an ROC curve for LogisticRegression and SVC models.
+    # Plot an ROC for LogisticRegression.
     pred_prob_lr = lr_clf.predict_proba(X_test)
-    pred_prob_svc = svc_clf.predict_proba(X_test)
     fpr_lr, tpr_lr, thresholds_lr = roc_curve(y_test, pred_prob_lr[:,1], 
                                               pos_label=1)
-    fpr_svc, tpr_svc, thresholds_svc = roc_curve(y_test, pred_prob_svc[:,1], 
-                                                 pos_label=1)
     fig, ax = plt.subplots(figsize=(16, 10))
-    ax.plot(fpr_lr, tpr_lr, label='Logistic regression')
-    ax.plot(fpr_svc, tpr_svc, label='Support vector classifier')
+    ax.plot(fpr_lr, tpr_lr, label='LogisticRegression')
     ax.plot([0, 1], [0, 1], transform=ax.transAxes, ls="--", c=".3")
-    plt.legend()
     plt.xlim([0.0, 1.0])
     plt.ylim([0.0, 1.0])
     plt.rcParams['font.size'] = 12
-    plt.title('ROC curve for best classifiers')
+    plt.title('ROC for LogisticRegression (AUC: 0.94)')
     plt.xlabel('False positive rate (1 - specificity)')
     plt.ylabel('True positive rate (sensitivity)')
     plt.grid(True)
-    plt.savefig('../output/modeling/ROC_logistic_regression_svc.jpg',
+    plt.savefig('../output/modeling/ROC_logisticregression.jpg',
                 bbox_inches='tight')
     plt.show()
     
-    # Display ROC AUC scores for LogistictRegression and SVC models.
-    print('Logistic regression AUC: {}'.format(auc(fpr_lr, tpr_lr)))
-    print('Support vector classifier AUC: {}'.format(auc(fpr_svc, tpr_svc)))
+    # Display ROC AUC scores for LogistictRegression.
+    print('LogisticRegression AUC (ROC): {}'.format(auc(fpr_lr, tpr_lr)))
     
-    # Create sorted dataframe with logistic regression coefficients.
+    # Create sorted dataframe with LogisticRegression coefficients.
     lr_coefficients = pd.DataFrame([lr_clf_drop_first.coef_[0]],
                                    columns = column_names)
     sorted_lr = lr_coefficients.iloc[:, np.argsort(lr_coefficients.loc[0])]
 
     plt.figure(figsize=(16,7))
     sns.barplot(y=sorted_lr.columns, x=sorted_lr.iloc[0,:])
-    plt.xlabel('Logistic regression coefficients')
+    plt.xlabel('LogisticRegression coefficients')
     plt.savefig('../output/modeling/logistic_regression_coefficients.jpg',
                 bbox_inches='tight')
     plt.show()        
