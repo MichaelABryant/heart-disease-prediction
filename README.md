@@ -18,7 +18,9 @@ The dataset was gathered from the [UCI Machine Learning Repository](https://arch
 ### Variables
 
 `age`: age in years
+
 `sex`: male (1) or female (0)
+
 `cp`: type of chestpain: typical angina (1), atypical angina (2), non-anginal pain (3), and asymptomatic (4)
 `trestbps`: resting blood pressure in mmHg
 `chol`: cholesterol  in mg/dL
