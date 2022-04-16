@@ -155,7 +155,7 @@ The SVC model scored better in recall (with a score of 0.93), but had a lower ac
   
 </div>
 
-I also took a look at the AUC (of the ROC shown below in Figure 7) which is an important metric for when true negatives and true positives have equal importance. Its also important to see how the model behaves at various probability thresholds for making classifications and for comparing multiple models. The LogisticRegression and SVC models both performed the same with excellent scores of 0.94 (out of 1.00). Neither definitively better than the other since the curves intersect, so it depends on the sensitivty/specificity trade-off that is willing to be made.
+I also took a look at the AUC (of the ROC shown below in Figure 7) which is an important metric for when true negatives and true positives have equal importance. Its also important to see how the model behaves at various probability thresholds for making classifications and for comparing multiple models. The LogisticRegression and SVC models both performed the same, regarding AUC, with excellent scores of 0.94 (out of 1.00). Neither definitively better than the other since the curves intersect, so it depends on the sensitivty/specificity trade-off that is willing to be made.
 
 <div align="center">
   
