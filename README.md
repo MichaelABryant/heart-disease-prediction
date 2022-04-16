@@ -133,7 +133,7 @@ For this application it's important to minimize false negatives (i.e., people wh
 * Recall/Sensitivity: 0.90
 * Accuracy: 0.88
 
-The SVC model scored better in recall (with a score of 0.93), but had a lower accuracy (with a score of 0.82) which is below the doctor diagnosis threshold.
+The SVC model scored better in recall (with a score of 0.93), but had a lower accuracy (with a score of 0.82) which is below the doctor diagnosis threshold. The test set confusion matricies for LogisticRegression and SVC models are shown below.
 
 <div align="center">
   
@@ -155,7 +155,7 @@ The SVC model scored better in recall (with a score of 0.93), but had a lower ac
   
 </div>
 
-I also took a look at the AUC (ROC) which is an important metric for when true negatives and true positives have equal importance. This is not the case for this project, but the LogisticRegression and SVC models both performed the same with excellent scores of 0.94 (out of 1.00).
+I also took a look at the AUC (of the ROC shown below) which is an important metric for when true negatives and true positives have equal importance. This is not the case for this project, but the LogisticRegression and SVC models both performed the same with excellent scores of 0.94 (out of 1.00).
 
 <div align="center">
   
