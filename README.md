@@ -3,7 +3,7 @@
 This repository is for the analysis and modeling done with the UCI heart disease dataset. Below you will find an overview of the data, code, and results.
 
 ### Project Outcome
-Diagnosing heart attacks (i.e., angina caused by heart disease) has a [misdiagnosis rate of 33%](https://www.bbc.com/news/health-37215768). This translates to a recall score of 66% which I considered the baseline for a successful model. The test set recall score for my best performing model was 93%. Therefore, the project was a sucess. I productionized the best performing model with a [front-end](https://app-heart-disease-predictor.herokuapp.com/) to help doctors with diagnosing heart attack patients.
+Diagnosing heart attacks (i.e., angina caused by heart disease) has a [misdiagnosis rate of 33%](https://www.bbc.com/news/health-37215768). This translates to a recall score of 66% which I considered the baseline for a successful recall score. Moreover, the accuracy of doctors diagnosing heart disease was [found to be 83%](https://www.bbc.com/news/health-42357257). The test set recall score for my best model was 90% with an accuracy of 88%. Therefore, the project was a sucess. I productionized the best performing model with a [front-end](https://app-heart-disease-predictor.herokuapp.com/) to help doctors with diagnosing heart attack patients.
 
 ### Code Used 
 
@@ -108,7 +108,7 @@ For this application it's important to minimize false negatives (i.e., people wh
 * Accuracy: 0.88
 * AUC (ROC): 0.94
 
-The SVC model scored better in sensitivity/recall (with a score of 0.93), but had a lower accuracy (with a score of 0.82). I decided to use logistic regression since it has easier interpretability and higher accuracy.
+The SVC model scored better in sensitivity/recall (with a score of 0.93), but had a lower accuracy (with a score of 0.82) which is below the doctor diagnosis threshold. A benefit of the logistic regression model is that it has easier interpretability.
 
 <div align="center">
   
@@ -171,10 +171,11 @@ I built a [Heroku web app](https://app-heart-disease-predictor.herokuapp.com/) w
 ## Resources
 
 1. [A third of heart attack patients misdiagnosed](https://www.bbc.com/news/health-37215768)
-2. [UCI Machine Learning Repository (dataset)](https://archive.ics.uci.edu/ml/datasets/heart+disease)
-3. [Kaggle: Ken Jee - Titanic Project Example](https://www.kaggle.com/kenjee/titanic-project-example)
-4. [Machine Learning Mastery: Stacking Ensemble Machine Learning with Python](https://machinelearningmastery.com/stacking-ensemble-machine-learning-with-python/)
-5. [Machine Learning Mastery: How to Report Classifier Performance with Confidence Intervals](https://machinelearningmastery.com/report-classifier-performance-confidence-intervals/)
-6. [Medium: Evaluating a Random Forest Model](https://medium.com/analytics-vidhya/evaluating-a-random-forest-model-9d165595ad56)
-7. [Analytics Vidhya: AUC-ROC Curve in Machine Learning Clearly Explained](https://www.analyticsvidhya.com/blog/2020/06/auc-roc-curve-machine-learning/)
-8. [GitHub: asthasharma98/Heart-Disease-Prediction-Deployment](https://github.com/asthasharma98/Heart-Disease-Prediction-Deployment)
+2. [Doctors have an 80% accuracy in diagnosis](https://www.bbc.com/news/health-42357257)
+3. [UCI Machine Learning Repository (dataset)](https://archive.ics.uci.edu/ml/datasets/heart+disease)
+4. [Kaggle: Ken Jee - Titanic Project Example](https://www.kaggle.com/kenjee/titanic-project-example)
+5. [Machine Learning Mastery: Stacking Ensemble Machine Learning with Python](https://machinelearningmastery.com/stacking-ensemble-machine-learning-with-python/)
+6. [Machine Learning Mastery: How to Report Classifier Performance with Confidence Intervals](https://machinelearningmastery.com/report-classifier-performance-confidence-intervals/)
+7. [Medium: Evaluating a Random Forest Model](https://medium.com/analytics-vidhya/evaluating-a-random-forest-model-9d165595ad56)
+8. [Analytics Vidhya: AUC-ROC Curve in Machine Learning Clearly Explained](https://www.analyticsvidhya.com/blog/2020/06/auc-roc-curve-machine-learning/)
+9. [GitHub: asthasharma98/Heart-Disease-Prediction-Deployment](https://github.com/asthasharma98/Heart-Disease-Prediction-Deployment)
