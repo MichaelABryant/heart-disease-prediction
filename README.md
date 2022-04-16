@@ -127,12 +127,11 @@ The models I used were GaussianNB, LogisticRegression, DecisionTreeClassifier, k
 
 ### Model Performance
 
-For this application it's important to minimize false negatives (i.e., people who have heart disease but were predicted not to), but also be better than just random guessing that everyone has heart disease. For this reason, the most important metrics were recall and accuracy, but I also looked at AUC (ROC). The best model was:
+For this application it's important to minimize false negatives (i.e., people who have heart disease but were predicted not to), but also be better than just random guessing that everyone has heart disease. For this reason, the most important metrics were recall and accuracy. The best model was:
 <br/><br/>
 **LogisticRegression**
 * Recall/Sensitivity: 0.90
 * Accuracy: 0.88
-* AUC (ROC): 0.94
 
 The SVC model scored better in recall (with a score of 0.93), but had a lower accuracy (with a score of 0.82) which is below the doctor diagnosis threshold.
 
@@ -155,6 +154,8 @@ The SVC model scored better in recall (with a score of 0.93), but had a lower ac
 <br/><br/>
   
 </div>
+
+I also took a look at the AUC (ROC) which is an important metric for when true negatives and true positives have equal importance. This is not the case for this project, but the LogisticRegression and SVC models both performed the same with excellent scores of 0.94 (out of 1.00).
 
 <div align="center">
   
