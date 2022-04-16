@@ -3,7 +3,7 @@
 This repository is for the analysis and modeling done with the UCI heart disease dataset. Below you will find an overview of the data, code, and results.
 
 ### Project Outcome
-Doctors diagnosing heart attacks (i.e., angina caused by heart disease) has a [misdiagnosis rate of 33%](https://www.bbc.com/news/health-37215768). This translates to a recall score of 66%. Moreover, the [accuracy of doctors diagnosing heart disease in all patients is 83%](https://www.bbc.com/news/health-42357257). Using these as recall and accuracy thresholds to be above, the test set recall score for my best model was 90% with an accuracy of 88%. Therefore, the project was a sucess. I productionized the best performing model with a [front-end](https://app-heart-disease-predictor.herokuapp.com/) to help doctors with diagnosing heart attack patients.
+Doctors diagnosing heart attacks (i.e., angina caused by heart disease) has a [misdiagnosis rate of 33%](https://www.bbc.com/news/health-37215768). This translates to a recall score of 66%. Moreover, the [accuracy of doctors diagnosing heart disease in all patients is 83%](https://www.bbc.com/news/health-42357257). Using these as recall and accuracy thresholds to be above, the test set recall score for my best model was 90% with an accuracy of 88%. Therefore, the project was a sucess. I productionized this model with a [front-end](https://app-heart-disease-predictor.herokuapp.com/) to help doctors with diagnosing heart attack patients.
 
 ### Code Used 
 
