@@ -3,7 +3,7 @@
 This repository is for the analysis and modeling done with the UCI heart disease dataset. Below you will find an overview of the data, code, and results.
 
 ### Project Outcome
-Diagnosing heart attacks (i.e., angina caused by heart disease) has a [misdiagnosis rate of 33%](https://www.bbc.com/news/health-37215768). This translates to a recall score of 66% which I considered the baseline for a successful recall score. Moreover, the accuracy of doctors diagnosing heart disease was [found to be 83%](https://www.bbc.com/news/health-42357257). The test set recall score for my best model was 90% with an accuracy of 88%. Therefore, the project was a sucess. I productionized the best performing model with a [front-end](https://app-heart-disease-predictor.herokuapp.com/) to help doctors with diagnosing heart attack patients.
+Doctors diagnosing heart attacks (i.e., angina caused by heart disease) in angina patients have a [misdiagnosis rate of 33%](https://www.bbc.com/news/health-37215768). This translates to a recall score of 66%. Moreover, the accuracy of doctors [diagnosing heart disease using heart scans is 83%](https://www.bbc.com/news/health-42357257). Using these as recall and accuracy thresholds to be above, the test set recall score for my best model was 90% with an accuracy of 88%. Therefore, the project was a sucess. I productionized the best performing model with a [front-end](https://app-heart-disease-predictor.herokuapp.com/) to help doctors with diagnosing heart attack patients.
 
 ### Code Used 
 
@@ -27,7 +27,7 @@ This file contains the EDA and feature engineering. The EDA is performed using d
 
 ### code/modeling.py
 
-This file contains the modeling where I hyperparameter tune: GaussianNB, LogisticRegression, DecisionTreeClassifier, kNeighborsClassifier, RandomForestClassifier, SVC (support vector classifier), XGBClassifier, StackingClassifier, and VotingClassifier. Since the computational needs are low from having 303 records with 12 features, I used nine ML algorithms and ensemble methods. The models are hyperparameter tuned with GridSearchCV based on accuracy and the best models are judged primarily on sensitivity/recall, but other metrics such as accuracy, specificity, precision, and AUC metrics were also considered.
+This file contains the modeling where I hyperparameter tune: GaussianNB, LogisticRegression, DecisionTreeClassifier, kNeighborsClassifier, RandomForestClassifier, SVC (support vector classifier), XGBClassifier, StackingClassifier, and VotingClassifier. Since the computational needs are low from having 303 records with 12 features, I used nine ML algorithms and ensemble methods. The models are hyperparameter tuned with GridSearchCV based on accuracy and the best models are judged primarily on recall and accuracy, but other metrics such as AUC (ROC) were also examined.
 
 ### datasets/heart.csv
 
@@ -95,7 +95,7 @@ I feature engineered using the dataset for modeling. I created dummy variables f
 
 First, I split the data into train and tests sets with a test set size of 25%.
 
-I then hyperparameter tuned nine different models with ten-fold cross-validation and evaluated them primarily based on sensitivity/recall.
+I then hyperparameter tuned nine different models with ten-fold cross-validation and evaluated the results using recall and accuracy.
 
 The models I used were GaussianNB, LogisticRegression, DecisionTreeClassifier, kNeighborsClassifier, RandomForestClassifier, SVC (support vector classifier), XGBClassifier, StackingClassifier, and VotingClassifier.
 
@@ -104,11 +104,11 @@ The models I used were GaussianNB, LogisticRegression, DecisionTreeClassifier, k
 For this application it's important to minimize false negatives (i.e., people who have heart disease but were predicted not to). For this reason, the most important metric was sensitivity/recall, but I also took accuracy and AUC (ROC) into consideration to choose the best model. For these reasons, the best model was:
 <br/><br/>
 **LogisticRegression**
-* Sensitivity/Recall: 0.90
+* Recall/Sensitivity: 0.90
 * Accuracy: 0.88
 * AUC (ROC): 0.94
 
-The SVC model scored better in sensitivity/recall (with a score of 0.93), but had a lower accuracy (with a score of 0.82) which is below the doctor diagnosis threshold. A benefit of the logistic regression model is that it has easier interpretability.
+The SVC model scored better in recall (with a score of 0.93), but had a lower accuracy (with a score of 0.82) which is below the doctor diagnosis threshold.
 
 <div align="center">
   
