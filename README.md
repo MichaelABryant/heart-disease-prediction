@@ -71,7 +71,7 @@ This folder contains the jpg images generated from running the eda.py and modeli
 
 ### EDA
 
-I looked at the distributions of the data and the correlations between variables. Below are some of the highlights. The target variable is distributed such that 54% of the samples have heart disease and 46% do not. This sets the accuarcy baseline for all model at 54% (to be better than random guessing).
+I looked at the distributions of the data and the correlations between variables. Below are some of the highlights in Figures 1, 2, 3, and 4. The target variable is distributed such that 54% of the samples have heart disease and 46% do not. This sets the accuarcy baseline for all model at 54% (to be better than random guessing).
 
 <div align="center">
   
@@ -133,7 +133,7 @@ For this application it's important to minimize false negatives (i.e., people wh
 * Recall/Sensitivity: 0.90
 * Accuracy: 0.88
 
-The SVC model scored better in recall (with a score of 0.93), but had a lower accuracy (with a score of 0.82) which is below the doctor diagnosis threshold. The test set confusion matricies for LogisticRegression and SVC models are displayed below.
+The SVC model scored better in recall (with a score of 0.93), but had a lower accuracy (with a score of 0.82) which is below the doctor diagnosis threshold. The test set confusion matricies for LogisticRegression and SVC models are displayed below in Figures 5 and 6.
 
 <div align="center">
   
@@ -155,7 +155,7 @@ The SVC model scored better in recall (with a score of 0.93), but had a lower ac
   
 </div>
 
-I also took a look at the AUC (of the ROC shown below) which is an important metric for when true negatives and true positives have equal importance. This is not the case for this project, but the LogisticRegression and SVC models both performed the same with excellent scores of 0.94 (out of 1.00).
+I also took a look at the AUC (of the ROC shown below in Figure 7) which is an important metric for when true negatives and true positives have equal importance. This is not the case for this project, but the LogisticRegression and SVC models both performed the same with excellent scores of 0.94 (out of 1.00).
 
 <div align="center">
   
@@ -169,7 +169,7 @@ I also took a look at the AUC (of the ROC shown below) which is an important met
 
 ### Feature Importance
 
-According to the logistic regression coefficients in Figure 5, the most important features, in order, were `ca`, `cp`. `sex`, `oldpeak`, and `thal`, `fbs` and `chol` had low impact on the model which is against conventional wisdom that diabetes and high cholesterol increase the risk for heart disease. Although, this group of people are not representative of the general population, because the common trait of these patients is that they have all experienced angina. `thalach` ranks highly in feature importance, as shown in Figure 2, there is a definite difference between the heart disease groups. Interestingly, maximum heart rate converges for the two groups, so `thalach` is probably more useful to determine heart disease in younger patients than older.
+According to the logistic regression coefficients in Figure 8, the most important features, in order, were `ca`, `cp`. `sex`, `oldpeak`, and `thal`, `fbs` and `chol` had low impact on the model which is against conventional wisdom that diabetes and high cholesterol increase the risk for heart disease. Although, this group of people are not representative of the general population, because the common trait of these patients is that they have all experienced angina. `thalach` ranks highly in feature importance, as shown in Figure 2, there is a definite difference between the heart disease groups. Interestingly, maximum heart rate converges for the two groups, so `thalach` is probably more useful to determine heart disease in younger patients than older.
 
 <div align="center">
   
