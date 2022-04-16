@@ -135,7 +135,7 @@ For this application it's important to minimize false negatives (i.e., people wh
 
 The SVC model scored better in recall (with a score of 0.93), but had a lower accuracy (with a score of 0.82) which is below the doctor diagnosis threshold. All other models had lower accuracies and lower recalls than LogisticRegression. DecisionTreeClassifier, RandomForestClassifier, StackingClassifier, and VotingClassifier were all within the doctor diagnosis threshold, but along with having higher scores LogisticRegression is easiest to interpret, so I chose LogisticRegression.
 
-The LogisticRegression scores are with the default probability threshold of 0.5. If higher recall is desired (at the expense of accuracy) then the threshold could be changed. Since these scores are within the goal thresholds, I did not change the default 0.5 probability threshold for the model. The test set confusion matrix for LogisticRegression is displayed below in Figures 5.
+The LogisticRegression scores are with the default probability threshold of 0.5. If higher recall is desired (at the expense of accuracy) then the threshold could be changed. Since these scores are within the goal thresholds, I did not change the default 0.5 probability threshold for the model. The test set confusion matrix for LogisticRegression is displayed below in Figure 5.
 
 <div align="center">
   
