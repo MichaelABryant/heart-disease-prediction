@@ -49,11 +49,11 @@ The dataset was gathered from the [UCI Machine Learning Repository](https://arch
 
 ### code/eda.py
 
-This file contains the EDA and feature engineering. The EDA is performed using descriptive statistics, histograms to determine distributions, and a correlation heatmap using the Pearson correlation coefficient. A feature is engineered by creating a predictor based on risk factors. 
+This file contains the exploratory data analysis (EDA). The EDA is performed using descriptive statistics, histograms to determine distributions, and a correlation heatmap using the Pearson correlation coefficient. Risk factors are counted for each patient to determine if a relationship exists with heart disease.
 
 ### code/modeling.py
 
-This file contains the data cleaning, feature engineering, and modeling where I hyperparameter tune: GaussianNB, LogisticRegression, DecisionTreeClassifier, kNeighborsClassifier, RandomForestClassifier, SVC (support vector classifier), XGBClassifier, StackingClassifier, and VotingClassifier. The missing `thal` data is imputed using KNNImputer. The optimal number of neighbors is found using the patients that weren't missing data, but excluded the `target` to avoid target leakage. Feature engineering included the creation of dummy variables for categorical variables with OneHotEncoder and numerical features are scaled using MinMaxScaler. The encoder and scaler are pickled after fitting for use with productionization. Since the computational needs are low from having 303 records with 12 features, I used nine ML algorithms and ensemble methods. The models are hyperparameter tuned with GridSearchCV based on accuracy and the best models are judged primarily on recall and accuracy, but other metrics such as AUC (ROC) were also examined.
+This file contains the data cleaning, feature engineering, and modeling where I hyperparameter tune: GaussianNB, LogisticRegression, DecisionTreeClassifier, kNeighborsClassifier, RandomForestClassifier, SVC (support vector classifier), XGBClassifier, StackingClassifier, and VotingClassifier. The missing `thal` data is imputed using KNNImputer. The optimal number of neighbors is found using the patients that weren't missing `thal` data, but excluded the `target` to avoid target leakage. Feature engineering included the creation of dummy variables for the categorical variables with OneHotEncoder and numerical features are scaled using MinMaxScaler. The encoder and scaler are pickled after fitting for model deployment. Since the computational needs are low from having 303 records with 12 features, I used nine ML algorithms and ensemble methods. The models are hyperparameter tuned with GridSearchCV based on accuracy and the best models are judged on recall and accuracy, but other metrics such as AUC (ROC) were also examined.
 
 ### datasets/heart.csv
 
@@ -61,7 +61,7 @@ This file contains the heart data that was analyzed.
 
 ### deployment
 
-This folder contains the pickle files for the logistic regression and SVC models, min max scaler, one hot encoder, and other files such as the HTML frontend and Flask files.
+This folder contains the pickle files for the LogisticRegression and SVC models, MinMaxScaler, OneHotEncoder, and other files such as the HTML frontend and Flask files.
 
 ### output
 
@@ -127,7 +127,7 @@ The models I used were GaussianNB, LogisticRegression, DecisionTreeClassifier, k
 
 ### Model Performance
 
-For this application it's important to minimize false negatives (i.e., people who have heart disease but were predicted not to). For this reason, the most important metrics were recall and accuracy, but I also looked at AUC (ROC). The best model was:
+For this application it's important to minimize false negatives (i.e., people who have heart disease but were predicted not to), but also be better than just random guessing that everyone has heart disease. For this reason, the most important metrics were recall and accuracy, but I also looked at AUC (ROC). The best model was:
 <br/><br/>
 **LogisticRegression**
 * Recall/Sensitivity: 0.90
