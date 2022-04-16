@@ -41,7 +41,7 @@ The dataset was gathered from the [UCI Machine Learning Repository](https://arch
 
 `ca`: number of major vessels colored by flouroscopy: 0, 1, 2, or 3
 
-`thal`: thalassemia (blood disorder): normal (3), fixed defect (6), or reversible defect (7)
+`thal`: thalassemia (blood disorder): missing data (0), normal (3), fixed defect (6), or reversible defect (7)
 
 `target`: heart disease (1) or no heart disease (0)
 
@@ -49,11 +49,11 @@ The dataset was gathered from the [UCI Machine Learning Repository](https://arch
 
 ### code/eda.py
 
-This file contains the EDA and feature engineering. The EDA is performed using descriptive statistics, histograms to determine distributions, and a correlation heatmap using the Pearson correlation coefficient. A feature is engineered by creating a predictor based on risk factors. Other feature engineering includes the creation of dummy variables for categorical variables with OneHotEncoder and numerical features are scaled using MinMaxScaler. The encoder and scaler are pickled after fitting for use with productionization.
+This file contains the EDA and feature engineering. The EDA is performed using descriptive statistics, histograms to determine distributions, and a correlation heatmap using the Pearson correlation coefficient. A feature is engineered by creating a predictor based on risk factors. 
 
 ### code/modeling.py
 
-This file contains the modeling where I hyperparameter tune: GaussianNB, LogisticRegression, DecisionTreeClassifier, kNeighborsClassifier, RandomForestClassifier, SVC (support vector classifier), XGBClassifier, StackingClassifier, and VotingClassifier. Since the computational needs are low from having 303 records with 12 features, I used nine ML algorithms and ensemble methods. The models are hyperparameter tuned with GridSearchCV based on accuracy and the best models are judged primarily on recall and accuracy, but other metrics such as AUC (ROC) were also examined.
+This file contains the data cleaning, feature engineering, and modeling where I hyperparameter tune: GaussianNB, LogisticRegression, DecisionTreeClassifier, kNeighborsClassifier, RandomForestClassifier, SVC (support vector classifier), XGBClassifier, StackingClassifier, and VotingClassifier. The missing `thal` data is imputed using KNNImputer. The optimal number of neighbors is found using the patients that weren't missing data, but excluded the target variable to avoid target leakage. Feature engineering included the creation of dummy variables for categorical variables with OneHotEncoder and numerical features are scaled using MinMaxScaler. The encoder and scaler are pickled after fitting for use with productionization. Since the computational needs are low from having 303 records with 12 features, I used nine ML algorithms and ensemble methods. The models are hyperparameter tuned with GridSearchCV based on accuracy and the best models are judged primarily on recall and accuracy, but other metrics such as AUC (ROC) were also examined.
 
 ### datasets/heart.csv
 
