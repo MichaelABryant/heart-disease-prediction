@@ -140,7 +140,7 @@ The LogisticRegression scores are with the default probability threshold of 0.5.
 <div align="center">
   
 <figure>
-<img src="output/modeling/confusion_matrix_logistic_regression.jpg"><br/>
+<img src="output/modeling/confusion_matrix_logisticregression.jpg"><br/>
   <figcaption>Figure 5: Confusion matrix for logistic regression model.</figcaption>
 </figure>
 <br/><br/>
@@ -152,7 +152,7 @@ I also took a look at the AUC (of the ROC shown below in Figure 6) which is an i
 <div align="center">
   
 <figure>
-<img src="output/modeling/ROC_logistic_regression_svc.jpg"><br/>
+<img src="output/modeling/ROC_logisticregression.jpg"><br/>
   <figcaption>Figure 6: ROC for logistic regression and SVC models.</figcaption>
 </figure>
 <br/><br/>
@@ -166,7 +166,7 @@ According to the logistic regression coefficients in Figure 7, the most importan
 <div align="center">
   
 <figure>
-<img src="output/modeling/logistic_regression_coefficients.jpg"><br/>
+<img src="output/modeling/logisticregression_coefficients.jpg"><br/>
   <figcaption>Figure 7: Logistic regression coefficients.</figcaption>
 </figure>
 <br/><br/>
