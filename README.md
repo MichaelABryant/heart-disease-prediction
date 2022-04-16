@@ -133,7 +133,7 @@ For this application it's important to minimize false negatives (i.e., people wh
 * Recall/Sensitivity: 0.90
 * Accuracy: 0.88
 
-The SVC model scored better in recall (with a score of 0.93), but had a lower accuracy (with a score of 0.82) which is below the doctor diagnosis threshold. The test set confusion matricies for LogisticRegression and SVC models are displayed below in Figures 5 and 6.
+The SVC model scored better in recall (with a score of 0.93), but had a lower accuracy (with a score of 0.82) which is below the doctor diagnosis threshold. These LogisticRegression scores are with the default probability threshold of 0.5. If higher recall is desired (at the expense of accuracy) then the threshold could be changed. Since these scores are within the goal thresholds, I did not change the default 0.5 probability threshold for the model. The test set confusion matricies for LogisticRegression and SVC models are displayed below in Figures 5 and 6.
 
 <div align="center">
   
@@ -155,7 +155,7 @@ The SVC model scored better in recall (with a score of 0.93), but had a lower ac
   
 </div>
 
-I also took a look at the AUC (of the ROC shown below in Figure 7) which is an important metric for when true negatives and true positives have equal importance. Its also important to see how the model behaves at various probability thresholds for making classifications and for comparing multiple models. The LogisticRegression and SVC models both performed the same, regarding AUC, with excellent scores of 0.94 (out of 1.00). Neither definitively better than the other since the curves intersect, so it depends on the sensitivty/specificity trade-off that is willing to be made.
+I also took a look at the AUC (of the ROC shown below in Figure 7) which is an important metric for when true negatives and true positives have equal importance. Its also important to see how the model behaves at various probability thresholds for making classifications and for comparing multiple models. The LogisticRegression and SVC models both performed the same, regarding AUC, with excellent scores of 0.94 (out of 1.00). Neither is definitively better than the other since the curves intersect, so it depends on the sensitivity/specificity trade-off for the situation.
 
 <div align="center">
   
