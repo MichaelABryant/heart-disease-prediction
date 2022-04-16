@@ -45,7 +45,7 @@ This folder contains the jpg images generated from running the eda.py and modeli
 
 ### EDA
 
-I looked at the distributions of the data and the correlations between variables. The target variable is distributed such that 54% of the samples have heart disease and 46% do not. This sets the accuarcy baseline of any model at 56% to be better than random guessing. Below are some of the highlights:
+I looked at the distributions of the data and the correlations between variables. The target variable is distributed such that 54% of the samples have heart disease and 46% do not. This sets the accuarcy baseline of any model at 54% to be better than random guessing. Below are some of the highlights:
 
 <div align="center">
   
