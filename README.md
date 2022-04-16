@@ -45,7 +45,7 @@ This folder contains the jpg images generated from running the eda.py and modeli
 
 ### EDA
 
-I looked at the distributions of the data and the correlations between variables. Below are some of the highlights:
+I looked at the distributions of the data and the correlations between variables. The target variable is distributed such that 54% of the samples have heart disease and 46% do not. This sets the accuarcy baseline of any model at 56% to be better than random guessing. Below are some of the highlights:
 
 <div align="center">
   
@@ -101,7 +101,7 @@ The models I used were GaussianNB, LogisticRegression, DecisionTreeClassifier, k
 
 ### Model Performance
 
-For this application it's important to minimize false negatives (i.e., people who have heart disease but were predicted not to). For this reason, the most important metric was sensitivity/recall, but I also took accuracy and AUC (ROC) into consideration to choose the best model. For these reasons, the best model was:
+For this application it's important to minimize false negatives (i.e., people who have heart disease but were predicted not to). For this reason, the most important metrics were recall and accuracy, but I also looked at AUC (ROC). The best model was:
 <br/><br/>
 **LogisticRegression**
 * Recall/Sensitivity: 0.90
