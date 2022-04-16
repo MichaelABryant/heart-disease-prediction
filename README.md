@@ -3,7 +3,7 @@
 This repository is for the analysis and modeling done with the UCI heart disease dataset. Below you will find an overview of the data, code, and results.
 
 ### Project Outcome
-Diagnosing heart attacks (i.e., angina caused by heart disease) has a [misdiagnosis rate of 33%](https://www.bhf.org.uk/informationsupport/heart-matters-magazine/news/behind-the-headlines/misdiagnosis#:~:text=Both%20result%20in%20serious%20damage,misdiagnosis%20when%20compared%20with%20men). This translates to a recall score of 66% which I considered the baseline for a successful model. The test set recall score for my best performing model was 93%. Therefore, the project was a sucess. I productionized the best performing model with a [front-end](https://app-heart-disease-predictor.herokuapp.com/) to help doctors with diagnosing heart attack patients.
+Diagnosing heart attacks (i.e., angina caused by heart disease) has a [misdiagnosis rate of 33%](https://www.bbc.com/news/health-37215768). This translates to a recall score of 66% which I considered the baseline for a successful model. The test set recall score for my best performing model was 93%. Therefore, the project was a sucess. I productionized the best performing model with a [front-end](https://app-heart-disease-predictor.herokuapp.com/) to help doctors with diagnosing heart attack patients.
 
 ### Code Used 
 
@@ -170,7 +170,7 @@ I built a [Heroku web app](https://app-heart-disease-predictor.herokuapp.com/) w
 
 ## Resources
 
-1. [A third of heart attack patients misdiagnosed](https://www.bhf.org.uk/informationsupport/heart-matters-magazine/news/behind-the-headlines/misdiagnosis#:~:text=Both%20result%20in%20serious%20damage,misdiagnosis%20when%20compared%20with%20men.)
+1. [A third of heart attack patients misdiagnosed](https://www.bbc.com/news/health-37215768)
 2. [UCI Machine Learning Repository (dataset)](https://archive.ics.uci.edu/ml/datasets/heart+disease)
 3. [Kaggle: Ken Jee - Titanic Project Example](https://www.kaggle.com/kenjee/titanic-project-example)
 4. [Machine Learning Mastery: Stacking Ensemble Machine Learning with Python](https://machinelearningmastery.com/stacking-ensemble-machine-learning-with-python/)
