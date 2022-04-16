@@ -22,16 +22,27 @@ The dataset was gathered from the [UCI Machine Learning Repository](https://arch
 `sex`: male (1) or female (0)
 
 `cp`: type of chestpain: typical angina (1), atypical angina (2), non-anginal pain (3), and asymptomatic (4)
+
 `trestbps`: resting blood pressure in mmHg
+
 `chol`: cholesterol  in mg/dL
+
 `fbs`: fasting blood sugar > 120 mg/dL: yes (1) or no (0)
+
 `restecg`: resting electrocardiogram (ECG) results: normal (0), ST-T wave abnormality (1), or probable/definite left ventricular hypertrophy (2)
+
 `thalach`: maximum heart rate
+
 `exang`: exercise induced angina: yes (1) or no (0)
+
 `oldpeak`: ST depression induced by exercise relative to rest
+
 `slope`: slope of the peak exercise ST segment: upsloping (1), flat (2), or downsloping (3)
+
 `ca`: number of major vessels colored by flouroscopy: 0, 1, 2, or 3
+
 `thal`: thalassemia (blood disorder): normal (3), fixed defect (6), or reversible defect (7)
+
 `target`: heart disease (1) or no heart disease (0)
 
 ## Files
